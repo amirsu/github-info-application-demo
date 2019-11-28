@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule,
+    Ng2SearchPipeModule
     
 
   ], 
