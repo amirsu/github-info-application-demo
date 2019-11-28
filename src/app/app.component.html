@@ -1,0 +1,92 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+        aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Github</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input [(ngModel)]="searchText" name="searchText" type="text" placeholder="Search users..."
+            class="form-control">
+        </div>
+      </form>
+    </div>
+    <!--/.navbar-collapse -->
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>{{title}}</h1>
+
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <!--start showing users here -->
+    <div *ngFor="let user of Userlistdata | filter:searchText" class="col-xs-6 col-md-2">
+
+      <div class="thumbnail">
+        <img src="{{user.avatar_url}}">
+        <div class="caption">
+          <h4>{{user.login}}</h4>
+          <p>
+            <button (click)="viewrepos(user.login)" class="btn btn-primary" role="button">Repos info</button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End showing users here -->
+
+  </div>
+
+</div> <!-- /container -->
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="ReposModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{usernameofrepositor}} has {{totalrepository}} repository</h4>
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body" *ngFor="let user of viewuserdata">
+            
+            <div class="thumbnail">
+                <div class="caption">
+                    <ul>
+                        <li><dt>Full name of repository:    </dt><dd>-- {{user.full_name}}</dd></li>
+                          <li><dt> Username of repository:</dt><dd>-- {{user.name}}</dd></li>
+                          <li><dt> html url of repository:</dt><dd>-- <a > {{user.html_url}}</a></dd></li>
+                        </ul> 
+
+                </div>
+              </div>
+                  
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
