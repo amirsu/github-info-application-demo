@@ -28,7 +28,6 @@ this.getsubmitdetails()
   //get submit details from Userservice
   getsubmitdetails() {
     // get users API call
-    console.log(this.UserService);
     this.UserService.getsubmitdetails().subscribe(response => {
        // get users API response here
     this.Userlistdata = response;
