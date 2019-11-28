@@ -43,7 +43,6 @@ this.getsubmitdetails()
     this.UserService.getrepositorydetails(user).subscribe(response => {
       // save response  for showing users 
       this.viewuserdata=response;
-      console.log(this.viewuserdata);
       this.usernameofrepositor = user;
       // count of repository
       this.totalrepository = this.viewuserdata.length;
