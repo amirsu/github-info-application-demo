@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
-import * as $ from 'jquery';
+import * as $AB from 'jquery';
+declare var $: any;
 import 'bootstrap';  
 
 @Component({
@@ -28,6 +29,7 @@ this.getsubmitdetails()
   //get submit details from Userservice
   getsubmitdetails() {
     // get users API call
+    console.log(this.UserService);
     this.UserService.getsubmitdetails().subscribe(response => {
        // get users API response here
     this.Userlistdata = response;
@@ -36,7 +38,7 @@ this.getsubmitdetails()
     });
 
 
-  }
+  }  
   viewrepos(user) {
     // view repositories API call
     this.UserService.getrepositorydetails(user).subscribe(response => {
